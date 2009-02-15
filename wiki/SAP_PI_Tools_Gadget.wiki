@@ -1,0 +1,10 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+This cool New Gadget is used to launch the SAP PI 7.1 Tools from the iGoogle homepage.
+
+
+= Details =
+
+For More Information on this have a look on this blog https://www.sdn.sap.com/irj/scn/weblogs?blog=/pub/wlg/13193.
