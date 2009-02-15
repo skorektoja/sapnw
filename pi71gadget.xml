@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="SAP PI Launcher-__UP_Env__" directory_title="PI 7.1 Tools Launcher" description="Use this iGoogle gadget to launch the PI 7.1 application from iGoogle" thumbnail="https://weblogs.sdn.sap.com/weblogs/images/251780423/final-f.png" screenshot="https://weblogs.sdn.sap.com/weblogs/images/251780423/final-f.png" author="Santhosh Kumar V"   author_email="vsanthosh.sap@gmail.com" author_link="https://www.sdn.sap.com/irj/scn/weblogs?blog=/pub/u/251780423" author_location="Bangalore, India"   author_photo="https://weblogs.sdn.sap.com/weblogs/images/251780423/santhosh_kumar.png" category="Technology" render_inline="optional" height="200" width="271">
+</ModulePrefs>
+<UserPref name="Server" datatype="string" display_name="Server:"/>
+<UserPref name="Port" datatype="string" display_name="Port:"/>
+<UserPref name="Scon" datatype="bool" display_name="Secure Connection(HTTPS):"/>
+<UserPref name="Env" display_name="Environment" default_value="DEV" datatype="enum">
+  <EnumValue value="DEV"/> 
+  <EnumValue value="QUA"/> 
+  <EnumValue value="PRD"/>
+</UserPref>
+<Content type="html">
+<![CDATA[<script type="text/javascript">
+var pref = new _IG_Prefs(__MODULE_ID__);
+var server = pref.getString("Server");
+var port = pref.getString("Port");
+var scon = pref.getString("Scon");
+var url = "https://" + server + ":" + port; 
+function seturl(lnk)
+{
+if(scon == 0)
+{
+url = "http://" + server + ":" + port;
+}
+var newUrl = ""; 
+if(server == "" || port == "")
+{
+alert("Server/Port value not entered.");
+return;
+} 
+newUrl = url + lnk; 
+window.open(newUrl,"New");
+}
+</script>
+<body>
+<img src="https://weblogs.sdn.sap.com/weblogs/images/251780423/final-f.png" width="271" height="170" usemap="#FINAL">
+<map id="FINAL" name="FINAL">
+<area shape="rect" coords="1,1,135,16" href="https://sdn.sap.com" target="_blank">
+<area shape="rect" coords="22,30,63,86" alt="Enterprise Service Registry" href="#" onclick="seturl('/sr')">
+<area shape="rect" coords="104,30,145,86" alt="Enterprise Service Builder" href="#" onclick="seturl('/rep/start/repository.jnlp')">
+<area shape="rect" coords="187,30,228,86" alt="Intergration Builder" href="#" onclick="seturl('/dir/start/directory.jnlp')">
+<area shape="rect" coords="20,101,63,155" alt="NetweaverAdministrator" href="#" onclick="seturl('/nwapi')">
+<area shape="rect" coords="104,101,146,155" alt="System Landscape Directory" href="#" onclick="seturl('/sld/index.html')">
+<area shape="rect" coords="186,101,229,155" alt="Runtime Workbench" href="#" onclick="seturl('/rwb')">
+</map>
+</body>
+]]>
+</Content>
+</Module>
